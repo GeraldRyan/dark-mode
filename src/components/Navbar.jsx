@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import {useLocalStorage} from '../hooks/useLocalStorage'
 
 const Navbar = () => {
+
   const [darkMode, setDarkMode] = useState(false);
   const toggleMode = e => {
     e.preventDefault();
     setDarkMode(!darkMode);
   };
+  // const [Dancer, setDancer] = useLocalStorage('dancer', 'NeliP')
+  // console.log(Dancer)
+
   return (
     <nav className="navbar">
       <h1>Crypto Tracker</h1>

@@ -2,17 +2,19 @@ import { useLocalStorage } from './useLocalStorage'
 import { useEffect } from 'react'
 
 
-export const useDarkMode = () =>
+export const useDarkMode = (so) =>
 {
-  // let theBody = document.getElementsByTagName('body')
 
 
-  const [isDark, setIsDark] = useLocalStorage('isDark', false)
+
+  const [isDark, setIsDark] = useLocalStorage('isDark', so)
+  console.log("LocalStorage",localStorage.getItem('isDark'))
   useEffect(() =>
   {
-    console.log(isDark)
+    console.log("isDark", isDark)
+    console.log("LocalStorage inside useEffect",localStorage.getItem('isDark'))
 
-    if (localStorage.getItem('isDark')===true){
+    if (JSON.parse(localStorage.getItem('isDark'))===true){
       // add dark mode to body element
       document.body.classList.add("dark-mode")
     }
